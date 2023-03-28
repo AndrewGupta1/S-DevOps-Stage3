@@ -1,0 +1,23 @@
+<settings>
+<profiles>
+  <profile>
+    <id>shubham-sources-artifact</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+      <repository>
+        <id>shubham-sources-artifact</id>
+        <url>https://shubham-472462859730.d.codeartifact.us-east-1.amazonaws.com/maven/sources-artifact/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<servers>
+  <server>
+    <id>shubham-sources-artifact</id>
+    <username>aws</username>
+    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+  </server>
+</servers>
+</settings>

@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  build:
+    commands:
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain shubham --domain-owner 472462859730 --region us-east-1 --query authorizationToken --output text`
+      - mvn -s settings.xml clean package deploy
+  post_build:
+    commands:
+      - echo Build completed
+artifacts:
+  files:
+    - target/*.jar
+    - scripts/*.sh
+    - appspec.yml
+  discard-paths: yes
